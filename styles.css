@@ -38,4 +38,26 @@ img {
 .card p {
   color: azure;
   margin: 5px;
+}
+
+.buttons {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+button {
+  margin: 20px;
+  background-color: #b725b7;
+  padding: 20px;
+  border-radius: 20%;
+  font-size: 20px;
+  font-weight: bold;
+  color: antiquewhite;
+  cursor: pointer;
+}
+
+button:hover {
+  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
 }/*# sourceMappingURL=styles.css.map */

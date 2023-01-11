@@ -12,14 +12,34 @@ const getPokemons = async () => {
     pokemones.push(result);
   }
 
-  
-  crearPokemon();
   crearBotones();
+  crearPokemon(pokemones);
   console.log(pokemones);
 };
 
-const crearBotones = () => {
+// Filtramos nuestro array de pokemons y que solo nos retorne los pokemons que coincidan con el parámetro seleccionado.
+// La función que filtra devuelve un array nuevo filtrado.
+// Estoy retornando los pokemons que cumplen la condición.
 
+const filtrar = (type) => {
+  const pokemonesFiltered = pokemones.filter((pokemon) => {
+    let encontrado = false;
+    for (const tipo of pokemon.types) {
+      if (tipo.type.name === type) {
+        encontrado = true;
+      }
+    } if ( encontrado ) {
+      return pokemon;
+    }
+    // return pokemon.types[0].type.name === type;
+  });
+
+  console.log("LLEGA AQUI");
+
+  crearPokemon(pokemonesFiltered);
+};
+
+const crearBotones = () => {
   const buttons$$ = document.querySelector(".buttons");
   const types = [];
 
@@ -32,20 +52,21 @@ const crearBotones = () => {
   }
   console.log(types);
 
-  for (tipos of types) {
+  for (const tipo of types) {
+    const button$$ = document.createElement("button");
 
-        const button$$ = document.createElement("button");
+    button$$.textContent = tipo;
 
-        button$$.textContent = tipos;
+    button$$.addEventListener("click", () => filtrar(tipo));
 
-        buttons$$.appendChild(button$$);
-
-  };
-
+    buttons$$.appendChild(button$$);
+  }
 };
 
-const crearPokemon = async () => {
-  for (const pokemon of pokemones) {
+const crearPokemon = (pokemonesToPrint) => {
+  pokemonContainer$$.innerHTML = "";
+
+  for (const pokemon of pokemonesToPrint) {
     const card$$ = document.createElement("div");
     const name$$ = document.createElement("h3");
     const imagen$$ = document.createElement("img");
@@ -66,12 +87,12 @@ const crearPokemon = async () => {
     card$$.appendChild(number$$);
     card$$.appendChild(type$$);
 
-    pokemonContainer.appendChild(card$$);
+    pokemonContainer$$.appendChild(card$$);
 
     // console.log(pokemon.types);
   }
 };
 
-const pokemonContainer = document.querySelector(".container");
+const pokemonContainer$$ = document.querySelector(".container");
 
 getPokemons();
