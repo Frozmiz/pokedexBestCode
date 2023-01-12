@@ -50,16 +50,12 @@ body {
   
   .buttons {
 
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    gap: 20px;
-    width: 20%;
-    margin-left: 23%;
-    margin-right: auto;
-    margin-bottom: 40px;
-    margin-top: 20px;
-    
-    
+    position: relative;
+    justify-content: space-around;
+	  // align-self: center;
+    margin: 20%;
+    margin-bottom: 50px;
+    margin-top: 30px;
 
   }
 
@@ -76,6 +72,7 @@ body {
   }
 
   button {
+    
     
     background-color: adjust-hue($color: #6e25b7, $degrees: 30);
     padding: 20px;
