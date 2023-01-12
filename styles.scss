@@ -50,15 +50,33 @@ body {
   
   .buttons {
 
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    gap: 20px;
+    width: 20%;
+    margin-left: 23%;
+    margin-right: auto;
+    margin-bottom: 40px;
+    margin-top: 20px;
+    
+    
+
+  }
+
+  .buttonAll {
+
+    background-color: adjust-hue($color: #d29d22, $degrees: 10);
+    padding: 20px;
+    border-radius: 20%;
+    font-size: 20px;
+    font-weight: bold;
+    color: rgb(24, 20, 16);
+    cursor: pointer;
 
   }
 
   button {
-    margin: 20px;
+    
     background-color: adjust-hue($color: #6e25b7, $degrees: 30);
     padding: 20px;
     border-radius: 20%;
@@ -66,10 +84,30 @@ body {
     font-weight: bold;
     color: antiquewhite;
     cursor: pointer;
+    
   }
 
   button:hover {
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
   }
 
+  .buscador {
+    display: block;
+    background-color: adjust-hue($color: #6e25b7, $degrees: 30);
+    padding: 20px;
+    border-radius: 20%;
+    font-size: 20px;
+    color: rgb(223, 220, 189);
+    cursor: pointer;
+    transition: width 3s ease-in-out;
+    width: 1.8%;
+    // background-image: url(https://cdn-icons-png.flaticon.com/128/751/751381.png);
+    // background-repeat:no-repeat;
+    // background-attachment: fixed;
+    ;
+  }
+
+  .buscador:focus {
+    width: 30%;
+  }
  

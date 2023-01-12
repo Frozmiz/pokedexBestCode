@@ -1,7 +1,24 @@
 // Inicializamos las variables principales.
 
 let pokemones = [];
-let cuantosPokemones = 23;
+let cuantosPokemones = 150;
+
+
+// BUSCADOR (EL addEventListener del boton está al final del código)
+
+const buscador$$ = document.querySelector(".buscador");
+
+const buscar = () => {
+
+  const pokemonesFiltered = pokemones.filter((pokemon) => {
+
+    return pokemon.name.toLowerCase().includes(buscador$$.value.toLowerCase());
+
+  });
+
+  crearPokemon(pokemonesFiltered);
+
+}
 
 // Nos aseguramos de que todos los pokemon (pokemones) se han cargado en orden en el array.
 
@@ -28,19 +45,19 @@ const filtrar = (type) => {
       if (tipo.type.name === type) {
         encontrado = true;
       }
-    } if ( encontrado ) {
+    }
+    if (encontrado) {
       return pokemon;
     }
     // return pokemon.types[0].type.name === type;
   });
-
-  console.log("LLEGA AQUI");
 
   crearPokemon(pokemonesFiltered);
 };
 
 const crearBotones = () => {
   const buttons$$ = document.querySelector(".buttons");
+  const buttonAllDiv$$ = document.querySelector(".buttonAllDiv")
   const types = [];
 
   for (const pokemon of pokemones) {
@@ -52,14 +69,24 @@ const crearBotones = () => {
   }
   console.log(types);
 
+// BOTON MOSTRAR TODOS LOS POKEMONS
+
+  const buttonAll$$ = document.createElement("button");
+  buttonAll$$.textContent = "Mostrar todos";
+  buttonAll$$.classList.add("buttonAll");
+  buttonAllDiv$$.appendChild(buttonAll$$);
+  buttonAll$$.addEventListener("click", () => crearPokemon(pokemones));
+  
+  
+
+// BOTONES DE FILTRADO POR CLASES 
+
   for (const tipo of types) {
     const button$$ = document.createElement("button");
-
     button$$.textContent = tipo;
-
     button$$.addEventListener("click", () => filtrar(tipo));
-
     buttons$$.appendChild(button$$);
+    
   }
 };
 
@@ -93,6 +120,12 @@ const crearPokemon = (pokemonesToPrint) => {
   }
 };
 
-const pokemonContainer$$ = document.querySelector(".container");
 
+const pokemonContainer$$ = document.querySelector(".container");
+buscador$$.addEventListener("input", buscar);
 getPokemons();
+
+
+
+
+
