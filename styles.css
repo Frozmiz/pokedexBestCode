@@ -8,10 +8,12 @@ body {
 h1 {
   color: white;
   font-size: 60px;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Barlow", sans-serif;
+  display: inline-block;
 }
 
 img {
+  display: inline-block;
   width: 50%;
   border-radius: 20%;
   box-shadow: 0 6px 60px rgb(23, 23, 255);
@@ -86,4 +88,30 @@ button:hover {
 
 .buscador:focus {
   width: 30%;
+}
+
+.cutreball {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.box {
+  width: 450px;
+  height: 300px;
+}
+
+.box img {
+  width: 100%;
+  height: auto;
+}
+
+@supports ((-o-object-fit: cover) or (object-fit: cover)) {
+  .box img {
+    height: 50%;
+    -o-object-fit: scale-down;
+       object-fit: scale-down;
+    -o-object-position: center center;
+       object-position: center center;
+  }
 }/*# sourceMappingURL=styles.css.map */
